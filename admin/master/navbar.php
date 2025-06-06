@@ -16,12 +16,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard | Leo 9</title>
+    <title>Dashboard | Leo 9 Angle Advertising</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../admin_assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -157,8 +157,13 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="manage_slider.php" class="menu-link">
-                    <div data-i18n="Without menu">Manage Slider</div>
+                  <a href="manage_service.php" class="menu-link">
+                    <div data-i18n="Without menu">Manage Services</div>
+                  </a>
+                </li>
+                 <li class="menu-item">
+                  <a href="manage_event.php" class="menu-link">
+                    <div data-i18n="Without menu">Manage Events</div>
                   </a>
                 </li>
               </ul>
@@ -214,7 +219,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="profile.php">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
