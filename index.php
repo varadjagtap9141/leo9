@@ -23,6 +23,14 @@ function getYouTubeEmbedUrl($url) {
     return $url;
 }
 ?>
+<?php
+$query="SELECT logo FROM client_slider";
+$client_slider_result=mysqli_query($conn,$query);
+?>
+<?php
+$query="SELECT * FROM slider";
+$slider_result=mysqli_query($conn,$query);
+?>
 <!-- hero section -->
 <div class="container-fluid">
     <div class="row">
@@ -30,42 +38,34 @@ function getYouTubeEmbedUrl($url) {
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
                 data-bs-interval="2500">
                 <div class="carousel-inner">
-                    <div class="carousel-item overflow-hidden active slider_img position-relative">
+                    <?php
+                    foreach($slider_result as $slider_row)
+                    {
+                        ?>
+                        <div class="carousel-item overflow-hidden active slider_img position-relative">
                         <div class="carousel_overlay text-white d-flex align-items-center justify-content-center">
-                            <!-- <div class="">
-                  <i class="fa-solid fa-quote-left common_color"></i>
-                  <p class="fw-semibold common_color">Discover Our Vision</p>
-                  <h1 class="">Welcome to Where Every Space Tells a Story</h1>
-                  <i class="fa-solid fa-quote-right common_color"></i>
-                </div> -->
+                            
                         </div>
-                        <img src="https://www.angleadvt.com/wp-content/uploads/2019/04/09.jpg"
+                        <img src="admin/components/uploads/<?=$slider_row['slider_img']?>"
                             class="d-block w-100 vh-100" alt="slider images">
                     </div>
-                    <div class="carousel-item overflow-hidden slider_img position-relative">
+                        <?php
+                    }
+                    ?>
+                    <!-- <div class="carousel-item overflow-hidden slider_img position-relative">
                         <div class="carousel_overlay text-white d-flex align-items-center justify-content-center">
-                            <!-- <div class="">
-                  <i class="fa-solid fa-quote-left common_color "></i>
-                  <p class="fw-semibold common_color">View Our Services</p>
-                  <h1 class=""> We Transform Your Vision into Reality</h1>
-                  <i class="fa-solid fa-quote-right common_color"></i>
-                </div> -->
+                           
                         </div>
                         <img src="https://www.angleadvt.com/wp-content/uploads/2018/10/03_BOM_HindiDay_Hoarding.jpg"
                             class="d-block w-100 vh-100" alt="slider images">
                     </div>
                     <div class="carousel-item overflow-hidden slider_img position-relative">
                         <div class="carousel_overlay text-white d-flex align-items-center justify-content-center">
-                            <!-- <div class="">
-                  <i class="fa-solid fa-quote-left common_color"></i>
-                  <p class="fw-semibold common_color">Learn About Our Process</p>
-                  <h1 class="">Our Process Creative Collaborative Custom-Tailored</h1>
-                  <i class="fa-solid fa-quote-right common_color"></i>
-                </div> -->
+                           
                         </div>
                         <img src="https://www.angleadvt.com/wp-content/uploads/2018/10/07_BOM_TDay_Hoarding.jpg"
                             class="d-block w-100 vh-100" alt="slider images">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -158,30 +158,17 @@ function getYouTubeEmbedUrl($url) {
             <div class="row py-4">
                 <div class="swiper-container brand-slider overflow-hidden">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide text-center">
+                        <?php
+                        foreach($client_slider_result as $client_row)
+                        {
+                            ?>
+                            <div class="swiper-slide text-center">
                             <img width="auto" height="120"
-                                src="https://www.angleadvt.com/leo9/wp-content/uploads/2025/04/01.png" alt="">
+                                src="admin/components/uploads/<?=$client_row['logo']?>" alt="">
                         </div>
-                        <div class="swiper-slide text-center">
-                            <img width="auto" height="120"
-                                src="https://www.angleadvt.com/leo9/wp-content/uploads/2025/04/02.png" alt="">
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <img width="auto" height="120"
-                                src="https://www.angleadvt.com/leo9/wp-content/uploads/2025/04/03.png" alt="">
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <img width="auto" height="120"
-                                src="https://www.angleadvt.com/leo9/wp-content/uploads/2025/04/04.png" alt="">
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <img width="auto" height="120"
-                                src="https://www.angleadvt.com/leo9/wp-content/uploads/2025/04/09.png" alt="">
-                        </div>
-                        <div class="swiper-slide text-center">
-                            <img width="auto" height="120"
-                                src="https://www.angleadvt.com/leo9/wp-content/uploads/2025/04/06.png" alt="">
-                        </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

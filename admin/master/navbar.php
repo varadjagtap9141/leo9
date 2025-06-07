@@ -114,6 +114,11 @@ $profile_row=mysqli_fetch_assoc($result);
 
               <ul class="menu-sub">
                 <li class="menu-item">
+                  <a href="manage_slider.php" class="menu-link">
+                    <div data-i18n="Without menu">Manage Slider</div>
+                  </a>
+                </li>
+                <li class="menu-item">
                   <a href="manage_service.php" class="menu-link">
                     <div data-i18n="Without menu">Manage Services</div>
                   </a>
