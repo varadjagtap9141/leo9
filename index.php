@@ -5,6 +5,24 @@ include "navbar.php";
 $query="SELECT * FROM services";
 $result=mysqli_query($conn,$query);
 ?>
+<?php
+$query="SELECT yt_link FROM events LIMIT 3";
+$event_result=mysqli_query($conn,$query);
+function getYouTubeEmbedUrl($url) {
+    // Handle full watch URLs
+    if (strpos($url, 'watch?v=') !== false) {
+        parse_str(parse_url($url, PHP_URL_QUERY), $params);
+        return 'https://www.youtube.com/embed/' . $params['v'];
+    }
+
+    // Handle youtu.be short links
+    if (strpos($url, 'youtu.be/') !== false) {
+        $videoId = basename(parse_url($url, PHP_URL_PATH));
+        return 'https://www.youtube.com/embed/' . $videoId;
+    }
+    return $url;
+}
+?>
 <!-- hero section -->
 <div class="container-fluid">
     <div class="row">
@@ -87,7 +105,7 @@ $result=mysqli_query($conn,$query);
         foreach($result as $service_row)
         {
             ?>
-            <div class="col-md-4 service" data-aos="zoom-in">
+        <div class="col-md-4 service" data-aos="zoom-in">
             <a href="" class="text-decoration-none">
                 <div class="card card-body border-0 bg-white shadow p-5 h-100">
                     <h5 class="card-title txt__color"><?=$service_row['service_title']?></h5>
@@ -96,7 +114,7 @@ $result=mysqli_query($conn,$query);
                 </div>
             </a>
         </div>
-            <?php
+        <?php
         }
         ?>
     </div>
@@ -113,33 +131,23 @@ $result=mysqli_query($conn,$query);
             <p class="fs-5 lh-lg">Leo9 has a strong understanding of event management and has developed a
                 comprehensive event management strategy.</p>
         </div>
+        <?php
+        foreach($event_result as $event_row)
+        {
+            ?>
         <div class="col-md-4">
             <div class="card card-body border-0 shadow bg-white rounded-0 p-1">
                 <div class="ratio ratio-4x3">
-                    <iframe src="https://www.youtube.com/embed/zCysOc27x_M" title="YouTube video"
-                        allowfullscreen></iframe>
+                    <iframe src="<?= getYouTubeEmbedUrl($event_row['yt_link']) ?>" title="YouTube video"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card card-body border-0 shadow bg-white rounded-0 p-1">
-                <div class="ratio ratio-4x3">
-                    <iframe src="https://www.youtube.com/embed/zCysOc27x_M" title="YouTube video"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card card-body border-0 shadow bg-white rounded-0 p-1">
-                <div class="ratio ratio-4x3">
-                    <iframe src="https://www.youtube.com/embed/zCysOc27x_M" title="YouTube video"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
+        <?php
+        }
+        ?>
     </div>
 </div>
 <!-- clients -->

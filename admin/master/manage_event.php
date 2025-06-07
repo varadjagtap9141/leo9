@@ -68,7 +68,6 @@ include "navbar.php";
                                 href="../components/delete_event.php?event_id=<?=$event_row['event_id']?>"
                                 onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></a>
                         </td>
-                        </td>
                     </tr>
                     <?php
                     }
