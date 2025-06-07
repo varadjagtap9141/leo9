@@ -52,20 +52,6 @@ $slider_result=mysqli_query($conn,$query);
                         <?php
                     }
                     ?>
-                    <!-- <div class="carousel-item overflow-hidden slider_img position-relative">
-                        <div class="carousel_overlay text-white d-flex align-items-center justify-content-center">
-                           
-                        </div>
-                        <img src="https://www.angleadvt.com/wp-content/uploads/2018/10/03_BOM_HindiDay_Hoarding.jpg"
-                            class="d-block w-100 vh-100" alt="slider images">
-                    </div>
-                    <div class="carousel-item overflow-hidden slider_img position-relative">
-                        <div class="carousel_overlay text-white d-flex align-items-center justify-content-center">
-                           
-                        </div>
-                        <img src="https://www.angleadvt.com/wp-content/uploads/2018/10/07_BOM_TDay_Hoarding.jpg"
-                            class="d-block w-100 vh-100" alt="slider images">
-                    </div> -->
                 </div>
             </div>
         </div>

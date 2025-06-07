@@ -1,12 +1,20 @@
 <?php
 include "navbar.php";
 ?>
-<div class="row">
+<div class="row g-3">
     <div class="col-md-12">
-        <div class="card card-body">
-            <h5>Manage Client</h5>
-            <hr />
-            <form action="../components/save_client.php" method="POST" enctype="multipart/form-data">
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modalCenter">Add Client</button>
+    </div>
+</div>
+<div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Manage Client</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../components/save_client.php" method="POST" enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -39,6 +47,7 @@ include "navbar.php";
                 </div>
                 <button class="btn btn-primary mt-3 float-end">Add Clients</button>
             </form>
+            </div>
         </div>
     </div>
 </div>

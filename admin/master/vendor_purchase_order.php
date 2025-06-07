@@ -3,8 +3,7 @@ include "navbar.php";
 ?>
 <div class="row g-3">
     <div class="col-md-12">
-        <button class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#modalCenter">+ Create
-            Purchase Order</button>
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modalCenter">Create Purchase Order</button>
     </div>
 </div>
 <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
@@ -151,7 +150,7 @@ include "navbar.php";
                         </div>
                     </div>
                     <div class="mt-3">
-                        <button class="btn btn-primary btn-sm float-end">Save Purchase Order</button>
+                        <button class="btn btn-primary float-end">Save Purchase Order</button>
                     </div>
                 </form>
             </div>
