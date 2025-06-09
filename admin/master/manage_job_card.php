@@ -7,23 +7,383 @@ $result = mysqli_query($conn, $query);
 ?>
 
 <!-- Dropdown Menu -->
-<div class="dropdown float-end">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Select Job Card Type
-    </button>
-    <ul class="dropdown-menu">
-        <?php while($card_row = mysqli_fetch_assoc($result)) { ?>
-        <li>
-            <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                data-bs-target="#modal_<?= $card_row['job_card_type_id'] ?>">
-                <?=$card_row['job_card_cats']?>
-            </a>
-        </li>
-        <?php } ?>
-    </ul>
+<div class="row">
+    <div class="col-md-12">
+        <div class="dropdown float-end">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Select Job Card Type
+            </button>
+            <ul class="dropdown-menu">
+                <?php while($card_row = mysqli_fetch_assoc($result)) { ?>
+                <li>
+                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        data-bs-target="#modal_<?= $card_row['job_card_type_id'] ?>">
+                        <?=$card_row['job_card_cats']?>
+                    </a>
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
 </div>
 
+<!-- Job Card Table -->
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <i class="menu-icon tf-icons fa-solid fa-address-card"></i>
+                        Print Offset Job Card Table
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Job Card No</th>
+                                    <th>Client</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
 
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-primary me-1">Active</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Albert Cook</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-1"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-success me-1">Completed</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Barry Hunter</td>
+
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-info me-1">Scheduled</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Trevor Baker</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill  bg-label-warning me-1">Pending</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Jerry Milton</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <i class="menu-icon tf-icons fa-solid fa-address-card"></i>
+                        Print Digital Job Card Table
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Job Card No</th>
+                                    <th>Client</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-primary me-1">Active</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Albert Cook</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-1"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-success me-1">Completed</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Barry Hunter</td>
+
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-info me-1">Scheduled</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Trevor Baker</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill  bg-label-warning me-1">Pending</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Jerry Milton</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <i class="menu-icon tf-icons fa-solid fa-address-card"></i>
+                        Event Job Card Table
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Job Card No</th>
+                                    <th>Client</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-primary me-1">Active</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Albert Cook</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-1"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-success me-1">Completed</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Barry Hunter</td>
+
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill bg-label-info me-1">Scheduled</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Trevor Baker</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td><span class="badge rounded-pill  bg-label-warning me-1">Pending</span></td>
+                                    <td>2022-09-15</td>
+                                    <td>JC/MUM/Media/2097</td>
+                                    <td>Jerry Milton</td>
+
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary" type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-edit-alt me-2"></i> Edit</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                        class="bx bx-trash me-2"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
