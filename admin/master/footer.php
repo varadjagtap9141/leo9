@@ -1,91 +1,91 @@
  </div>
-            <!-- / Content -->
+ <!-- / Content -->
 
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , by
-                  <a href="https://www.angleadvt.com/leo9/" target="_blank" class="footer-link fw-bolder">Leo_9</a>
-                </div>
-               
-              </div>
-            </footer>
-            <!-- / Footer -->
+ <!-- Footer -->
+ <footer class="content-footer footer bg-footer-theme">
+     <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+         <div class="mb-2 mb-md-0">
+             ©
+             <script>
+             document.write(new Date().getFullYear());
+             </script>
+             , by
+             <a href="https://www.angleadvt.com/leo9/" target="_blank" class="footer-link fw-bolder">Leo_9</a>
+         </div>
 
-            <div class="content-backdrop fade"></div>
-          </div>
-          <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
-      </div>
+     </div>
+ </footer>
+ <!-- / Footer -->
 
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
-    <!-- / Layout wrapper -->
+ <div class="content-backdrop fade"></div>
+ </div>
+ <!-- Content wrapper -->
+ </div>
+ <!-- / Layout page -->
+ </div>
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../admin_assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../admin_assets/vendor/libs/popper/popper.js"></script>
-    <script src="../admin_assets/vendor/js/bootstrap.js"></script>
-    <script src="../admin_assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+ <!-- Overlay -->
+ <div class="layout-overlay layout-menu-toggle"></div>
+ </div>
+ <!-- / Layout wrapper -->
 
-    <script src="../admin_assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+ <!-- Core JS -->
+ <!-- build:js assets/vendor/js/core.js -->
+ <script src="../admin_assets/vendor/libs/jquery/jquery.js"></script>
+ <script src="../admin_assets/vendor/libs/popper/popper.js"></script>
+ <script src="../admin_assets/vendor/js/bootstrap.js"></script>
+ <script src="../admin_assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <!-- Vendors JS -->
-    <script src="../admin_assets/vendor/libs/apex-charts/apexcharts.js"></script>
+ <script src="../admin_assets/vendor/js/menu.js"></script>
+ <!-- endbuild -->
 
-    <!-- Main JS -->
-    <script src="../admin_assets/js/main.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.umd.js"></script>
-		<script>
-		const {
-			ClassicEditor,
-			Essentials,
-			Bold,
-			Italic,
-			Font,
-			Paragraph
-		} = CKEDITOR;
+ <!-- Vendors JS -->
+ <script src="../admin_assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-		ClassicEditor
-			.create( document.querySelector( '#ck' ), {
-				licenseKey: '<YOUR_LICENSE_KEY>', // Create a free account on https://portal.ckeditor.com/checkout?plan=free
-				plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-				toolbar: [
-					'undo', 'redo', '|', 'bold', 'italic', '|',
-					'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-				]
-			} )
-				.then( ck => {
-					window.ck = ck;
-				} )
-				.catch( error => {
-					console.error( error );
-				} );
-		</script>
+ <!-- Main JS -->
+ <script src="../admin_assets/js/main.js"></script>
+ <script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.umd.js"></script>
+ <script>
+const {
+    ClassicEditor,
+    Essentials,
+    Bold,
+    Italic,
+    Font,
+    Paragraph
+} = CKEDITOR;
 
-    <!-- Page JS -->
-    <script src="../admin_assets/js/dashboards-analytics.js"></script>
-    <!-- fontawesome -->
+ClassicEditor
+    .create(document.querySelector('#ck'), {
+        licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTA3MjMxOTksImp0aSI6IjQ1MzE0YjA2LTA1MzItNDM5Yi1iYzFkLTIzNmFmNDVlYzFjNCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImQxYTdiMmM3In0.ePiQA4dvcmFX5Ifsk9LN5x-Y2SQGjqV_hDMV4J8yxxuk7rZlUfxk2lE1i__9sj8eJgSXIu0Tx0T4tUfTHTTcAg', // Create a free account on https://portal.ckeditor.com/checkout?plan=free
+        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+        toolbar: [
+            'undo', 'redo', '|', 'bold', 'italic', '|',
+            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+        ]
+    })
+    .then(ck => {
+        window.ck = ck;
+    })
+    .catch(error => {
+        console.error(error);
+    });
+ </script>
 
-    <script src="https://kit.fontawesome.com/fff7dcb016.js" crossorigin="anonymous"></script>
+ <!-- Page JS -->
+ <script src="../admin_assets/js/dashboards-analytics.js"></script>
+ <!-- fontawesome -->
 
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+ <script src="https://kit.fontawesome.com/fff7dcb016.js" crossorigin="anonymous"></script>
 
-    <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+ <!-- Place this tag in your head or just before your close body tag. -->
+ <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+ <script>
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
-    <script>
+ </script>
+ <script>
 window.addEventListener("DOMContentLoaded", function() {
     const dateInput = document.getElementById("date");
     if (!dateInput.value) {
@@ -103,7 +103,7 @@ function addRow() {
     newRow.querySelectorAll("select").forEach(select => select.selectedIndex = 0);
 
     // Add event to delete button
-    newRow.querySelector(".delete-row").addEventListener("click", function () {
+    newRow.querySelector(".delete-row").addEventListener("click", function() {
         deleteRow(this);
     });
 
@@ -120,6 +120,7 @@ function deleteRow(btn) {
         alert("At least one item row is required.");
     }
 }
-</script>
-  </body>
-</html>
+ </script>
+ </body>
+
+ </html>

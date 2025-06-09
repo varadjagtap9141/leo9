@@ -7,7 +7,7 @@ include "navbar.php";
             <div class="d-flex">
                 <h5>Job Cards</h5>
                 <div class="ms-auto">
-                    <a href="#"><button class="btn btn-primary btn-sm" data-bs-toggle="tooltip"
+                    <a href="manage_job_card.php"><button class="btn btn-primary btn-sm" data-bs-toggle="tooltip"
                             data-bs-placement="bottom" data-bs-title="Create Job Card"><i
                                 class="fa-solid fa-plus"></i></button></a>
                 </div>
