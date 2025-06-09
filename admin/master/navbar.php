@@ -87,7 +87,20 @@ $profile_row=mysqli_fetch_assoc($result);
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+            <li class="menu-item">
+              <a href="" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons fa-solid fa-address-card"></i>
+                <div data-i18n="Layouts">Job Cards</div>
+              </a>
 
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="manage_job_card.php" class="menu-link">
+                    <div data-i18n="Without menu">Manage Job Cards</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <!-- Layouts -->
             <li class="menu-item">
               <a href="" class="menu-link menu-toggle">
