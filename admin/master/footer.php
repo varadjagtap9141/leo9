@@ -121,6 +121,26 @@ function deleteRow(btn) {
     }
 }
  </script>
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.toggle-check').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const targetId = checkbox.getAttribute('data-target');
+                const textarea = document.getElementById(targetId);
+
+                if (checkbox.checked) {
+                    textarea.disabled = false;
+                    textarea.required = true;
+                } else {
+                    textarea.disabled = true;
+                    textarea.required = false;
+                    textarea.value = '';
+                }
+            });
+        });
+    });
+</script>
+
  </body>
 
  </html>

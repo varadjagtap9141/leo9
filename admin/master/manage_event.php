@@ -1,38 +1,49 @@
 <?php
 include "navbar.php";
 ?>
-<div class="row">
+<div class="row g-3">
     <div class="col-md-12">
-        <div class="card card-body">
-            <h5>Add Events</h5>
-            <hr />
-            <form action="../components/save_event.php" method="POST">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group mb-2">
-                            <label for="event_title">Event Name</label>
-                            <input type="text" class="form-control" id="event_title" name="event_title" required>
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modalCenter">Add
+            Event</button>
+    </div>
+</div>
+<div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Manage Events</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../components/save_event.php" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label for="event_title">Event Name</label>
+                                <input type="text" class="form-control" id="event_title" name="event_title" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label for="yt_link">Event Link</label>
+                                <input type="url" class="form-control" id="yt_link" name="yt_link"
+                                    placeholder="Enter YouTube Link" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-2">
+                                <label for="event_desc">Event Description</label>
+                                <textarea class="form-control" name="event_desc" id=""></textarea>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group mb-2">
-                            <label for="yt_link">Event Link</label>
-                            <input type="url" class="form-control" id="yt_link" name="yt_link"
-                                placeholder="Enter YouTube Link" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group mb-2">
-                            <label for="event_desc">Event Description</label>
-                            <textarea class="form-control" name="event_desc" id=""></textarea>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary float-end mt-3">Add Event</button>
-            </form>
+                    <button class="btn btn-primary float-end mt-3">Add Event</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card card-body table-responsive">

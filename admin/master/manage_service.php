@@ -2,12 +2,21 @@
 include "navbar.php";
 include "connection.php";
 ?>
-<div class="row">
+<div class="row g-3">
     <div class="col-md-12">
-        <div class="card card-body">
-            <h5>Add Services</h5>
-            <hr />
-            <form action="../components/save_service.php" method="POST">
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modalCenter">Add
+            Service</button>
+    </div>
+</div>
+<div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Manage Services</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <form action="../components/save_service.php" method="POST">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group mb-2">
@@ -24,9 +33,11 @@ include "connection.php";
                 </div>
                 <button class="btn btn-primary float-end mt-3">Add Service</button>
             </form>
+            </div>
         </div>
     </div>
 </div>
+
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card card-body table-responsive">
