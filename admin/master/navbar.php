@@ -116,6 +116,12 @@ $profile_row=mysqli_fetch_assoc($result);
                 </li>
               </ul>
             </li>
+            <li class="menu-item">
+              <a href="sw_manage_client.php" class="menu-link">
+                <i class="menu-icon tf-icons fa-solid fa-users"></i>
+                <div data-i18n="Analytics">Clients</div>
+              </a>
+            </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Website</span>
             </li>
