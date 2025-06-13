@@ -78,7 +78,7 @@ include "navbar.php";
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="status">Status</label>
-                                <select class="form-select" name="state" id="state" required>
+                                <select class="form-select" name="status" id="status" required>
                                     <option value="">Select Status</option>
                                     <option value="">Active</option>
                                     <option value="">Unactive</option>

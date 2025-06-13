@@ -1,6 +1,7 @@
 <?php
 include "../master/connection.php";
 echo "<pre>";
+extract($_POST);
 print_r($_POST);
 print_r($_FILES);
 if($_FILES['pan']['size']>0)
@@ -20,12 +21,19 @@ if($_FILES['passbook']['size']>0)
 }
 if($_POST['website'])
 {
-    $query="INSERT INTO clients(website) values ('$website')";
+    $website = $_POST['website'];
+} else {
+    $website = "No URL Provided";
 }
-else
-{
-    $query="INSERT INTO clients(client_name,gst_no,address,city,state,pincode,status,contact_no,alt_contact_no,pan_no,tan_no,bank_name,bank_acc_no,ifsc_code,district,pan,adhar,passbook) values ('$client_name', '$gst_no', '$address', '$city', '$state', '$pincode', '$status', '$contact_no', '$alt_contact_no','$pan_no','$tan_no','$bank_name','$bank_acc_no','$ifsc_code','$district','$pan','$adhar','$passbook')";
-}
+$query = "INSERT INTO clients (
+        client_name, gst_no, address, city, state, pincode, status,
+        contact_no, alt_contact_no, website, pan_no, tan_no, bank_name,
+        bank_acc_no,bank_address, ifsc_code, district, pan, adhar, passbook
+    ) VALUES (
+        '$client_name', '$gst_no', '$address', '$city', '$state', '$pincode', '$status',
+        '$contact_no', '$alt_contact_no', '$website', '$pan_no', '$tan_no', '$bank_name',
+        '$bank_acc_no', '$bank_address', '$ifsc_code', '$district', '$pan', '$adhar', '$passbook'
+    )";
 $result=mysqli_query($conn, $query);
-print_r($result);
+header("Location:../master/sw_manage_clients.php");
 ?>
