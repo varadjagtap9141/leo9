@@ -39,7 +39,22 @@ $client_row=mysqli_fetch_assoc($result);
                 </tr>
                 <tr>
                     <th>Status</th>
-                    <td><span class="badge rounded-pill bg-success"><?=$client_row['status']?></span></td>
+                    <?php
+                    if($client_row['status']=='Active')
+                    {
+                        ?>
+                        <td><span class="badge rounded-pill bg-success"><?=$client_row['status']?></span></td>
+                        <?php
+                    }
+                    ?>
+                    <?php
+                    if($client_row['status']=='Unactive')
+                    {
+                        ?>
+                        <td><span class="badge rounded-pill bg-danger"><?=$client_row['status']?></span></td>
+                        <?php
+                    }
+                    ?>
                 </tr>
                 <tr>
                     <th>Contact No</th>
@@ -87,15 +102,15 @@ $client_row=mysqli_fetch_assoc($result);
                 </tr>
                  <tr>
                     <th>Passbok/Check Front Page</th>
-                    <td><img class="w-25 h-25" src="../components/uploads/<?=$client_row['passbook']?>" alt=""></td>
+                    <td><img width="220" height="auto" src="../components/uploads/<?=$client_row['passbook']?>" alt=""></td>
                 </tr>
                 <tr>
                     <th>PAN</th>
-                    <td><img class="w-25 h-25" src="../components/uploads/<?=$client_row['pan']?>" alt=""></td>
+                    <td><img width="220" height="auto" src="../components/uploads/<?=$client_row['pan']?>" alt=""></td>
                 </tr>
                 <tr>
                     <th>Adhar</th>
-                    <td><img class="w-25 h-25" src="../components/uploads/<?=$client_row['adhar']?>" alt=""></td>
+                    <td><img width="220" height="auto" src="../components/uploads/<?=$client_row['adhar']?>" alt=""></td>
                 </tr>
             </table>
         </div>

@@ -122,6 +122,12 @@ $profile_row=mysqli_fetch_assoc($result);
                 <div data-i18n="Analytics">Clients</div>
               </a>
             </li>
+            <li class="menu-item">
+              <a href="sw_manage_branch.php" class="menu-link">
+                <i class="menu-icon tf-icons fa-solid fa-building"></i>
+                <div data-i18n="Analytics">Branches</div>
+              </a>
+            </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Website</span>
             </li>

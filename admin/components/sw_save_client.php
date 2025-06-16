@@ -1,9 +1,6 @@
 <?php
 include "../master/connection.php";
-echo "<pre>";
 extract($_POST);
-print_r($_POST);
-print_r($_FILES);
 if($_FILES['pan']['size']>0)
 {
     $pan=time().$_FILES['pan']['name'];
