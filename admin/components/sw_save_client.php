@@ -35,5 +35,5 @@ $query = "INSERT INTO clients (
         '$bank_acc_no', '$bank_address', '$ifsc_code', '$district', '$pan', '$adhar', '$passbook'
     )";
 $result=mysqli_query($conn, $query);
-header("Location:../master/sw_manage_clients.php");
+header("Location:../master/sw_manage_client.php");
 ?>

@@ -49,22 +49,23 @@ include "navbar.php";
                                 <label for="state">State</label>
                                 <select class="form-select" name="state" id="state" required>
                                     <option value="">Select State</option>
-                                    <option value="">Andaman and Nicobar Islands</option>
-                                    <option value="">Andhra Pradesh</option>
-                                    <option value="">Arunachal Pradesh</option>
-                                    <option value="">Assam</option>
-                                    <option value="">Bihar</option>
-                                    <option value="">Chandigrah</option>
-                                    <option value="">Chhattisgarh</option>
-                                    <option value="">Dadar & Nagar Haveli</option>
-                                    <option value="">Daman & Diu</option>
-                                    <option value="">Delhi</option>
-                                    <option value="">Goa</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigrah">Chandigrah</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadar & Nagar Haveli">Dadar & Nagar Haveli</option>
+                                    <option value="Daman & Diu">Daman & Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <!-- <option value="">Goa</option>
                                     <option value="">Gujarat</option>
                                     <option value="">Haryana</option>
                                     <option value="">Himachal Pradesh</option>
                                     <option value="">Jammu & Kashmir</option>
-                                    <option value="">Jharkhand</option>
+                                    <option value="">Jharkhand</option> -->
                                 </select>
                             </div>
                         </div>
@@ -80,8 +81,8 @@ include "navbar.php";
                                 <label for="status">Status</label>
                                 <select class="form-select" name="status" id="status" required>
                                     <option value="">Select Status</option>
-                                    <option value="">Active</option>
-                                    <option value="">Unactive</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Unactive">Unactive</option>
                                 </select>
                             </div>
                         </div>
@@ -177,6 +178,52 @@ include "navbar.php";
                     <button class="btn btn-primary mt-3 float-end">Add Client</button>
                 </form>
             </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card card-body table-responsive">
+            <h5>Client List</h5>
+            <table class="table table-bordered text-center table-hover">
+                <thead>
+                    <tr>
+                        <th>Srno</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    extract($_GET);
+                    $query="SELECT * FROM clients";
+                    $result=mysqli_query($conn, $query);
+                    foreach($result as $key=>$client_row)
+                    {
+                        ?>
+                    <tr>
+                        <td><?=$key+1?></td>
+                        <td><?=$client_row['client_name']?></td>
+                        <td><?=$client_row['contact_no']?></td>
+                        <td class="d-flex justify-content-center gap-2">
+                            <a class="btn btn-sm btn-secondary"
+                                href="view_client.php?client_id=<?=$client_row['client_id']?>"> <i
+                                    class="fa-solid fa-eye"></i></a>
+                            <a class="btn btn-sm btn-primary"
+                                href="edit_sw_client.php?client_id=<?=$client_row['client_id']?>"> <i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-sm btn-danger"
+                                href="../components/delete_sw_client.php?client_id=<?=$client_row['client_id']?>"
+                                onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+
+                    </tr>
+                    <?php
+                    }
+                   ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
