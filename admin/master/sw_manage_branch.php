@@ -60,7 +60,7 @@ include "navbar.php";
                                 <select class="form-select" id="status" name="status" required>
                                     <option value="">Select Status</option>
                                     <option value="active">Active</option>
-                                    <option value="unactive">Inactive</option>
+                                    <option value="unactive">Unactive</option>
                                 </select>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ include "navbar.php";
                                 href="edit_sw_branch.php?branch_id=<?=$branch_row['branch_id']?>"> <i
                                     class="fa-solid fa-pen-to-square"></i></a>
                             <a class="btn btn-sm btn-danger"
-                                href="../components/delete_sw_branch.php?branch_id=<?=$branch_row['branch_id']?>"
+                                href="../components/sw_delete_branch.php?branch_id=<?=$branch_row['branch_id']?>"
                                 onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>

@@ -9,7 +9,7 @@ $branch_row=mysqli_fetch_assoc($result);
     <div class="col-md-12">
         <div class="card card-body">
             <h5>Manage Branch</h5>
-            <form action="../components/sw_save_branch.php" method="POST">
+            <form action="../components/sw_update_branch.php" method="POST">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <input type="hidden" name="branch_id" value="<?=$branch_row['branch_id'];?>">
@@ -55,7 +55,7 @@ $branch_row=mysqli_fetch_assoc($result);
                                 <select class="form-select" id="status" name="status" required>
                                     <option value="">Select Status</option>
                                     <option value="active" <?=($branch_row['status']=='active') ? 'selected' : ''?>>Active</option>
-                                    <option value="unactive" <?=($branch_row['status']=='unactive') ? 'selected' : ''?>>Inactive</option>
+                                    <option value="unactive" <?=($branch_row['status']=='unactive') ? 'selected' : ''?>>Unactive</option>
                                 </select>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ $branch_row=mysqli_fetch_assoc($result);
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary mt-3 float-end">Add Client</button>
+                    <button onClick="return confirm('Are You Sure?')" class="btn btn-primary mt-3 float-end">Update Client</button>
                 </form>
         </div>
     </div>

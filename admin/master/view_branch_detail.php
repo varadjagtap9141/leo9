@@ -8,7 +8,10 @@ $branch_row=mysqli_fetch_assoc($result);
 <div class="row">
     <div class="col-md-12">
         <div class="card card-body">
-            <h5>Branch Information</h5>
+            <h5>Branch Information
+                <a href="sw_manage_branch.php"
+                    class="btn btn-primary btn-sm float-end"><i class="fa-solid fa-arrow-left"></i></a>
+            </h5>
             <table class="table text-center table-bordered">
                 <tr>
                     <th>Branch Name</th>
