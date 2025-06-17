@@ -105,7 +105,8 @@ $profile_row=mysqli_fetch_assoc($result);
                     <div class="col-md-3">
                         <div class="form-group mb-2">
 
-                            <img class="w-100 h-100" src="../components/uploads/<?=$profile_row['favicon']?>" alt="Leo9 Angle Advertising">
+                            <img class="w-100 h-100" src="../components/uploads/<?=$profile_row['favicon']?>"
+                                alt="Leo9 Angle Advertising">
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -116,7 +117,8 @@ $profile_row=mysqli_fetch_assoc($result);
                     </div>
                     <div class="col-md-3">
                         <div class="form-group mb-2 bg-warning p-2">
-                            <img class="w-100 h-100" src="../components/uploads/<?=$profile_row['f_logo']?>" alt="Leo9 Angle Advertising">
+                            <img class="w-100 h-100" src="../components/uploads/<?=$profile_row['f_logo']?>"
+                                alt="Leo9 Angle Advertising">
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -126,9 +128,13 @@ $profile_row=mysqli_fetch_assoc($result);
                         </div>
                     </div>
                 </div>
-                <button onClick="return confirm('Are You Sure?')" type="submit" class="btn btn-primary float-end mt-3">
-                    Update Company Profile
-                </button>
+                <div class="float-end mt-3">
+                    <a href="dashboard.php" class="btn btn-secondary">Back</a>
+                    <button onClick="return confirm('Are You Sure?')" type="submit"
+                        class="btn btn-primary">
+                        Update Company Profile
+                    </button>
+                </div>
             </form>
         </div>
     </div>

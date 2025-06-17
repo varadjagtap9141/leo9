@@ -110,6 +110,11 @@ $profile_row=mysqli_fetch_assoc($result);
 
               <ul class="menu-sub">
                 <li class="menu-item">
+                  <a href="sw_manage_vendor.php" class="menu-link">
+                    <div data-i18n="Without menu">Manage Vendors</div>
+                  </a>
+                </li>
+                <li class="menu-item">
                   <a href="vendor_purchase_order.php" class="menu-link">
                     <div data-i18n="Without menu">Purchase Orders</div>
                   </a>
@@ -127,6 +132,20 @@ $profile_row=mysqli_fetch_assoc($result);
                 <i class="menu-icon tf-icons fa-solid fa-building"></i>
                 <div data-i18n="Analytics">Branches</div>
               </a>
+            </li>
+            <li class="menu-item">
+              <a href="" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons fa-solid fa-user"></i>
+                <div data-i18n="Layouts">User</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="sw_manage_role.php" class="menu-link">
+                    <div data-i18n="Without menu">Roles</div>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Website</span>
