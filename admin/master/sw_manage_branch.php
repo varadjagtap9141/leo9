@@ -60,7 +60,7 @@ include "navbar.php";
                                 <select class="form-select" id="status" name="status" required>
                                     <option value="">Select Status</option>
                                     <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
+                                    <option value="unactive">Inactive</option>
                                 </select>
                             </div>
                         </div>
@@ -79,7 +79,7 @@ include "navbar.php";
 </div>
 <div class="row mt-4">
     <div class="col-md-12">
-        <div class="card card-body">
+        <div class="card card-body table-responsive">
             <h5>Branch List</h5>
             <table class="table table-bordered text-center table-hover">
                 <thead>
