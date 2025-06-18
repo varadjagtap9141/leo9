@@ -88,12 +88,6 @@ $profile_row=mysqli_fetch_assoc($result);
               </a>
             </li>
             <li class="menu-item">
-              <a href="emp.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Employee</div>
-              </a>
-            </li>
-            <li class="menu-item">
               <a href="" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons fa-solid fa-address-card"></i>
                 <div data-i18n="Layouts">Job Cards</div>
