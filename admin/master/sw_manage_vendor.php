@@ -43,78 +43,78 @@ include "navbar.php";
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="gst_pan">GST/PAN No</label>
-                                <input type="text" class="form-control" id="gst_pan" name="gst_pan"
-                                    placeholder="" required>
+                                <input type="text" class="form-control" id="gst_pan" name="gst_pan" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone_no">Contact No</label>
-                                <input type="number" class="form-control" id="phone_no" name="phone_no"
-                                    placeholder="" required>
+                                <input type="number" class="form-control" id="phone_no" name="phone_no" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">Vendor Email</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" name="city"
-                                    placeholder="" required>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="district">District</label>
-                                <input type="text" class="form-control" id="district" name="district"
-                                    placeholder="" required>
+                                <input type="text" class="form-control" id="district" name="district" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="state">State</label>
-                                <input type="state" class="form-control" id="state" name="state"
-                                    placeholder="" required>
+                                <input type="state" class="form-control" id="state" name="state" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="pincode">Pincode</label>
-                                <input type="number" class="form-control" id="pincode" name="pincode"
-                                    placeholder="" required>
+                                <input type="number" class="form-control" id="pincode" name="pincode" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <h5>Bank Details</h5>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="bank_name">Bank Name</label>
-                                <input type="text" class="form-control" id="bank_name" name="bank_name"
-                                    placeholder="" required>
+                                <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="bank_address">Bank Address</label>
-                                <textarea class="form-control" name="bank_address" id=""></textarea>
+                                <textarea class="form-control" name="bank_address" id="bank_address"
+                                    oninput="validateMarathiAddress(this)"></textarea>
+                                <small id="addressWarning" class="text-danger d-none">Commas (,) not allowed.</small>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="acc_no">Bank Account No</label>
-                                 <input type="number" class="form-control" id="acc_no" name="acc_no"
-                                    placeholder="" required>
+                                <input type="number" class="form-control" id="acc_no" name="acc_no" placeholder=""
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="ifsc">IFSC code</label>
-                                 <input type="text" class="form-control" id="ifsc" name="ifsc"
-                                    placeholder="" required>
+                                <input type="text" class="form-control" id="ifsc" name="ifsc" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -130,8 +130,8 @@ include "navbar.php";
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="passbook">Passbook Front Page/Cancelled Check</label>
-                                 <input type="file" class="form-control" id="passbook" name="passbook"
-                                    placeholder="" required>
+                                <input type="file" class="form-control" id="passbook" name="passbook" placeholder=""
+                                    required>
                             </div>
                         </div>
                     </div>
@@ -144,10 +144,86 @@ include "navbar.php";
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card card-body table-responsive">
-            <h5></h5>
+            <h5>Vendor List
+                <div class="float-end">
+                    <form action="sw_manage_vendor.php" method="GET" class="d-flex justify-content-end">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search by Vendor Name"
+                            name="search">
+                            <button class="btn btn-secondary" type="search" id="button-addon2">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </h5>
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>srno</th>
+                        <th>Vendor Name</th>
+                        <th>Address</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    extract($_GET);
+                    if(isset($_GET['search']))
+                    {
+                        $name = $_GET['search'];
+                        $query = "SELECT * FROM vendors WHERE vendor_name LIKE '%$name%'";
+                        $result= mysqli_query($conn, $query);
+                        if(mysqli_num_rows($result) == 0)
+                        {
+                            echo "<tr><td colspan='5'>No Records Found</td></tr>";
+                        }
+                        else{
+                        foreach($result as $key=>$vendor_row)
+                        {
+                            ?>
+                            <tr>
+                                <td><?=$key+1?></td>
+                                <td><?=$vendor_row['vendor_name']?></td>
+                                 <td><?=$vendor_row['address']?></td>
+                                <td><?=$vendor_row['type']?></td>
+                                <td><?=$vendor_row['status']?></td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    }
+                    else{
+                        $query = "SELECT * FROM vendors";
+                        $result= mysqli_query($conn, $query);
+                        foreach($result as $key=>$vendor_row)
+                        {
+                            ?>
+                            <tr>
+                                <td><?=$key+1?></td>
+                                <td><?=$vendor_row['vendor_name']?></td>
+                                <td><?=$vendor_row['address']?></td>
+                                <td><?=$vendor_row['type']?></td>
+                                <td><?=$vendor_row['status']?></td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 <?php
 include "footer.php";
 ?>
+<script>
+function validateMarathiAddress(textarea) {
+    const warning = document.getElementById('addressWarning');
+    if (textarea.value.includes(',')) {
+        warning.classList.remove('d-none');
+    } else {
+        warning.classList.add('d-none');
+    }
+}
+</script>
