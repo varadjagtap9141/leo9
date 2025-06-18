@@ -141,6 +141,11 @@ function deleteRow(btn) {
     });
 </script>
 
+<script>
+  document.getElementById("printButton").addEventListener("click", function () {
+    window.print();
+  });
+</script>
  </body>
 
  </html>

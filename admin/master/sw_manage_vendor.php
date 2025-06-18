@@ -144,29 +144,35 @@ include "navbar.php";
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card card-body table-responsive">
-            <h5>Vendor List
-                <div class="float-end">
-                    <form action="sw_manage_vendor.php" method="GET" class="d-flex justify-content-end">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search by Vendor Name"
-                            name="search">
-                            <button class="btn btn-secondary" type="search" id="button-addon2">Search</button>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Vendor List</h5>
+                <div class="d-flex gap-2">
+                    <a href="sw_manage_vendor.php" class="btn btn-secondary btn-sm d-flex align-items-center">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </a>
+                    <form action="sw_manage_vendor.php" method="GET" class="d-flex">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Search" name="search">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
-            </h5>
-            <table class="table table-bordered table-hover text-center">
-                <thead>
-                    <tr>
-                        <th>srno</th>
-                        <th>Vendor Name</th>
-                        <th>Address</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
+            </div>
+            <div id="printArea">
+                <table class="table table-bordered table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>srno</th>
+                            <th>Vendor Name</th>
+                            <th>Address</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                     extract($_GET);
                     if(isset($_GET['search']))
                     {
@@ -181,14 +187,14 @@ include "navbar.php";
                         foreach($result as $key=>$vendor_row)
                         {
                             ?>
-                            <tr>
-                                <td><?=$key+1?></td>
-                                <td><?=$vendor_row['vendor_name']?></td>
-                                 <td><?=$vendor_row['address']?></td>
-                                <td><?=$vendor_row['type']?></td>
-                                <td><?=$vendor_row['status']?></td>
-                            </tr>
-                            <?php
+                        <tr>
+                            <td><?=$key+1?></td>
+                            <td><?=$vendor_row['vendor_name']?></td>
+                            <td><?=$vendor_row['address']?></td>
+                            <td><span class="badge rounded-pill bg-label-primary me-1"><?=$vendor_row['type']?></span></td>
+                            <td><?=$vendor_row['status']?></td>
+                        </tr>
+                        <?php
                         }
                     }
                     }
@@ -198,19 +204,20 @@ include "navbar.php";
                         foreach($result as $key=>$vendor_row)
                         {
                             ?>
-                            <tr>
-                                <td><?=$key+1?></td>
-                                <td><?=$vendor_row['vendor_name']?></td>
-                                <td><?=$vendor_row['address']?></td>
-                                <td><?=$vendor_row['type']?></td>
-                                <td><?=$vendor_row['status']?></td>
-                            </tr>
-                            <?php
+                        <tr>
+                            <td><?=$key+1?></td>
+                            <td><?=$vendor_row['vendor_name']?></td>
+                            <td><?=$vendor_row['address']?></td>
+                            <td><span class="badge rounded-pill bg-label-primary me-1"><?=$vendor_row['type']?></span></td>
+                            <td><?=$vendor_row['status']?></td>
+                        </tr>
+                        <?php
                         }
                     }
                     ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
