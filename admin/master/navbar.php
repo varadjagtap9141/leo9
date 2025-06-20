@@ -44,12 +44,16 @@ $profile_row=mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="../admin_assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../admin_assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../admin_assets/css/demo.css" />
+    <link rel="stylesheet" href="../admin_assets/css/style.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../admin_assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="../admin_assets/vendor/libs/apex-charts/apex-charts.css" />
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.css">
+
+    <!-- select -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Page CSS -->
 
     <!-- Helpers -->

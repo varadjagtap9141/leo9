@@ -35,26 +35,17 @@ $result=mysqli_query($conn, $type_query);
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="type">Vendor Type</label>
-                                <select class="form-select" id="type" name="vendor_type_id" required>
-                                    <option value="" disabled>Select Type</option>
-                                    <form action="edit_sw_vendor.php" method="GET" class="d-flex">
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control" placeholder="Search" name="search">
-                                            <button class="btn btn-primary" type="submit">
-                                                <i class="fa-solid fa-magnifying-glass"></i>
-                                            </button>
-                                        </div>
-                                    </form>
+                                <select class="form-select searchable-select" id="type" name="vendor_type_id" required>
+                                    <option value="" disabled <?= empty($current_vendor_type_id) ? 'selected' : '' ?>>
+                                        Select Type</option>
                                     <?php
-                                    while($vendor_types_row=mysqli_fetch_assoc($result))
-                                    {
-                                        ?>
-                                    <option value="<?=$vendor_types_row['vendor_type_id']?>"
-                                        <?=($vendor_types_row['vendor_type_id']==$current_vendor_type_id) ? 'selected' : ''?>>
-                                        <?=$vendor_types_row['vendor_type']?></option>
-                                    <?php
-                                    }
+                                    while($vendor_types_row = mysqli_fetch_assoc($result)) {
                                     ?>
+                                    <option value="<?=$vendor_types_row['vendor_type_id']?>"
+                                        <?=($vendor_types_row['vendor_type_id'] == $current_vendor_type_id) ? 'selected' : ''?>>
+                                        <?=$vendor_types_row['vendor_type']?>
+                                    </option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
