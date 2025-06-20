@@ -41,8 +41,9 @@ include "navbar.php";
                                     while($vendor_type_row=mysqli_fetch_assoc($result))
                                     {
                                        ?>
-                                       <option value="<?=$vendor_type_row['vendor_type_id']?>"><?=$vendor_type_row['vendor_type']?></option>
-                                       <?php
+                                    <option value="<?=$vendor_type_row['vendor_type_id']?>">
+                                        <?=$vendor_type_row['vendor_type']?></option>
+                                    <?php
                                     }
                                     ?>
                                 </select>
@@ -171,7 +172,7 @@ include "navbar.php";
             <table class="table table-bordered table-hover text-center">
                 <thead>
                     <tr>
-                        <th>srno</th>
+                        <th>Sr No</th>
                         <th>Vendor Name</th>
                         <th>Contact No</th>
                         <th>Vendor Type</th>
@@ -180,23 +181,49 @@ include "navbar.php";
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM vendors, vendors_type WHERE vendors.vendor_type_id = vendors_type.vendor_type_id";
-                    $result= mysqli_query($conn,$query);
-                    foreach($result as $key=>$vendor_row)
-                    {
-                        ?>
-                        <tr>
-                            <td><?=$key+1?></td>
-                            <td><?=$vendor_row['vendor_name']?></td>
-                            <td><?=$vendor_row['phone_no']?></td>
-                            <td><?=$vendor_row['vendor_type']?></td>
-                            
-                        </tr>
-                        <?php
-                    }
-                    ?>
+        extract($_GET);
+        if (isset($_GET['search'])) {
+            $name = $_GET['search'];
+            $query = "SELECT * FROM vendors JOIN vendors_type ON vendors.vendor_type_id = vendors_type.vendor_type_id WHERE vendor_name LIKE '%$name%'";
+        } else {
+            $query = "SELECT * FROM vendors JOIN vendors_type ON vendors.vendor_type_id = vendors_type.vendor_type_id";
+        }
+
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) > 0) {
+            foreach ($result as $key => $vendor_row) {
+        ?>
+                    <tr>
+                        <td><?= $key + 1 ?></td>
+                        <td><?= $vendor_row['vendor_name'] ?></td>
+                        <td><?= $vendor_row['phone_no'] ?></td>
+                        <td><?= $vendor_row['vendor_type'] ?></td>
+                        <td class="d-flex justify-content-center gap-2">
+                            <a class="btn btn-sm btn-secondary"
+                                href="view_vendor.php?vendor_id=<?= $vendor_row['vendor_id'] ?>">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a class="btn btn-sm btn-primary"
+                                href="edit_sw_vendor.php?vendor_id=<?= $vendor_row['vendor_id'] ?>">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger"
+                                href="../components/delete_sw_vendor.php?vendor_id=<?= $vendor_row['vendor_id'] ?>"
+                                onclick="return confirm('Are you sure?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php
+            }
+        } else {
+            echo "<tr><td colspan='5'>No record found</td></tr>";
+        }
+        ?>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>

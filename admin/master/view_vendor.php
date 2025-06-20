@@ -1,14 +1,17 @@
 <?php
 include "navbar.php";
 extract($_GET);
-$query="SELECT * FROM vendors WHERE vendor_id='$vendor_id'";
+$query="SELECT * FROM vendors JOIN vendors_type ON vendors.vendor_type_id=vendors_type.vendor_type_id WHERE vendor_id='$vendor_id'";
 $result=mysqli_query($conn, $query);
 $vendor_row=mysqli_fetch_assoc($result);
 ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-body">
-            <h5>Vendor Information</h5>
+            <h5>Vendor Information
+                 <a href="sw_manage_vendor.php"
+                    class="btn btn-primary btn-sm float-end"><i class="fa-solid fa-arrow-left"></i></a>
+            </h5>
             <table class="table table-bordered text-center">
                 <tr>
                     <th>Vendor Name</th>
@@ -17,20 +20,7 @@ $vendor_row=mysqli_fetch_assoc($result);
                 <tr>
                     <th>Vendor Type</th>
                     <td>
-                        <?php
-                                if($vendor_row['type'] == 'Production'){
-                                    {
-                                        ?>
-                        <span class="badge rounded-pill bg-label-primary me-1"><?=$vendor_row['type']?></span>
-                        <?php
-                                    }
-                                }
-                                else{
-                                    ?>
-                        <span class="badge rounded-pill bg-label-danger me-1"><?=$vendor_row['type']?></span>
-                        <?php
-                                }
-                                ?>
+                        <?=$vendor_row['vendor_type']?>
                     </td>
                 </tr>
                 <tr>
