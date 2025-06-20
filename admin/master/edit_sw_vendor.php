@@ -35,13 +35,13 @@ $result=mysqli_query($conn, $type_query);
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="type">Vendor Type</label>
-                                <select class="form-select searchable-select rounded-3" id="type" name="vendor_type_id" style="height: 50px !important;" required>
+                                <select class="form-select searchable-select" id="type" name="vendor_type_id" style="height: 38px !important;" required>
                                     <option value="" disabled <?= empty($current_vendor_type_id) ? 'selected' : '' ?>>
                                         Select Type</option>
                                     <?php
                                     while($vendor_types_row = mysqli_fetch_assoc($result)) {
                                     ?>
-                                    <option value="<?=$vendor_types_row['vendor_type_id']?>"
+                                    <option class="text-danger" value="<?=$vendor_types_row['vendor_type_id']?>"
                                         <?=($vendor_types_row['vendor_type_id'] == $current_vendor_type_id) ? 'selected' : ''?>>
                                         <?=$vendor_types_row['vendor_type']?>
                                     </option>
