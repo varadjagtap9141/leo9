@@ -35,7 +35,7 @@ $result=mysqli_query($conn, $type_query);
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="type">Vendor Type</label>
-                                <select class="form-select searchable-select" id="type" name="vendor_type_id" required>
+                                <select class="form-select searchable-select rounded-3" id="type" name="vendor_type_id" style="height: 50px !important;" required>
                                     <option value="" disabled <?= empty($current_vendor_type_id) ? 'selected' : '' ?>>
                                         Select Type</option>
                                     <?php
