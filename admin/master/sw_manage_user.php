@@ -113,9 +113,18 @@ include "navbar.php";
                 </thead>
                 <tbody>
                     <?php
-                    $query="SELECT * FROM user
-                    JOIN branches ON user.branch_id=branches.branch_id
-                    JOIN roles ON user.role_id=roles.role_id";
+                    $query="SELECT user.user_id,
+                    user.user_name,
+                    user.email,
+                    user.phone_no,
+                    user.profile,
+                    user.status,
+                    user.created_at,
+                    branches.branch_name,
+                    roles.role
+                    FROM user
+                    JOIN branches ON user.branch_id = branches.branch_id
+                    JOIN roles ON user.role_id = roles.role_id";
                     $result=mysqli_query($conn,$query);
                     foreach($result as $key=>$user_row)
                     {
