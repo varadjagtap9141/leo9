@@ -140,6 +140,11 @@ $profile_row=mysqli_fetch_assoc($result);
 
                         <ul class="menu-sub">
                             <li class="menu-item">
+                                <a href="sw_manage_user.php" class="menu-link">
+                                    <div data-i18n="Without menu">Manage User</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="sw_manage_role.php" class="menu-link">
                                     <div data-i18n="Without menu">Roles</div>
                                 </a>
